@@ -5,560 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IronForge Gym • Transform Your Body</title>
     
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
-            scroll-behavior: smooth;
-        }
-
-        /* Custom Colors */
-        :root {
-            --primary-orange: #ff6b2c;
-            --primary-gold: #ffb347;
-            --dark-bg: #0a0a0a;
-            --card-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        /* Navigation */
-        .navbar {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            transition: all 0.3s;
-        }
-
-        .navbar-brand {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-gold), var(--primary-orange));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .navbar-brand span {
-            font-size: 0.8rem;
-            background: none;
-            -webkit-background-clip: unset;
-            color: var(--primary-gold);
-        }
-
-        .nav-link {
-            color: #ffffff !important;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-gold) !important;
-        }
-
-        .btn-outline-gold {
-            border: 2px solid var(--primary-gold);
-            background: transparent;
-            color: var(--primary-gold);
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .btn-outline-gold:hover {
-            background: var(--primary-gold);
-            color: #000;
-        }
-
-        .btn-primary-gold {
-            background: linear-gradient(135deg, var(--primary-gold), var(--primary-orange));
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: transform 0.2s;
-        }
-
-        .btn-primary-gold:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, var(--primary-gold), var(--primary-orange));
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 90vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), 
-                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&auto=format');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(255, 179, 71, 0.15);
-            border: 1px solid rgba(255, 179, 71, 0.4);
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
-
-        .highlight {
-            background: linear-gradient(135deg, var(--primary-gold), var(--primary-orange));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Sections */
-        .section-dark {
-            background: #0a0a0a;
-            padding: 5rem 0;
-        }
-
-        .section-light {
-            background: #111111;
-            padding: 5rem 0;
-        }
-
-        .section-header {
-            font-size: 2.2rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .section-sub {
-            text-align: center;
-            color: #9ca3af;
-            margin-bottom: 3rem;
-        }
-
-        /* Feature Cards */
-        .feature-card {
-            background: var(--card-bg);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid rgba(255, 179, 71, 0.15);
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-gold);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary-gold);
-            margin-bottom: 1rem;
-        }
-
-        /* Program Cards */
-        .program-card {
-            background: var(--card-bg);
-            border-radius: 1.5rem;
-            overflow: hidden;
-            transition: transform 0.3s;
-            border: 1px solid rgba(255, 179, 71, 0.15);
-            height: 100%;
-        }
-
-        .program-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .program-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .program-tag {
-            display: inline-block;
-            background: rgba(255, 179, 71, 0.15);
-            padding: 0.2rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            color: var(--primary-gold);
-        }
-
-        /* Pricing Cards */
-        .pricing-card {
-            background: var(--card-bg);
-            border-radius: 1.5rem;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(255, 179, 71, 0.15);
-            transition: transform 0.3s;
-            height: 100%;
-        }
-
-        .pricing-card.featured {
-            border: 2px solid var(--primary-gold);
-            transform: scale(1.02);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary-gold);
-            margin: 1rem 0;
-        }
-
-        .price span {
-            font-size: 0.9rem;
-            color: #9ca3af;
-        }
-
-        .pricing-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 1.5rem 0;
-        }
-
-        .pricing-card li {
-            padding: 0.5rem 0;
-            color: #d1d5db;
-        }
-
-        .pricing-card li i {
-            color: var(--primary-gold);
-            margin-right: 0.5rem;
-        }
-
-        /* CTA Section */
-        .cta-box {
-            background: linear-gradient(135deg, var(--primary-orange), var(--primary-gold));
-            border-radius: 2rem;
-            padding: 3rem;
-            text-align: center;
-        }
-
-        .cta-box .btn-primary-gold {
-            background: white;
-            color: var(--primary-orange);
-        }
-
-        /* Footer */
-        .footer {
-            background: #080808;
-            padding: 3rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            color: #6b7280;
-        }
-
-        .social-icons a {
-            color: #9ca3af;
-            font-size: 1.2rem;
-            margin: 0 0.75rem;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--primary-gold);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .section-header {
-                font-size: 1.8rem;
-            }
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">IRONFORGE <span>GYM</span></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
-                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-            <button class="btn-outline-gold" id="joinBtn">Join Now</button>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">IRONFORGE <span>GYM</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <button class="btn-outline-gold" id="joinBtn">Join Now</button>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <div class="hero-badge">🔥 LIMITED TIME OFFER 🔥</div>
-                <h1>Transform Your <span class="highlight">Body,</span><br>Transform Your <span class="highlight">Life</span></h1>
-                <p class="text-light-emphasis mb-4">State-of-the-art equipment, expert trainers, and a community that pushes you to be your best.</p>
-                <button class="btn btn-primary-gold" id="startBtn">Start Free Trial →</button>
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="hero-badge">🔥 LIMITED TIME OFFER 🔥</div>
+                    <h1>Transform Your <span class="highlight">Body,</span><br>Transform Your <span class="highlight">Life</span></h1>
+                    <p class="text-light-emphasis mb-4">State-of-the-art equipment, expert trainers, and a community that pushes you to be your best.</p>
+                    <button class="btn btn-primary-gold" id="startBtn">Start Free Trial →</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Features Section -->
-<section class="section-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-header">Why Choose Us</div>
-                <div class="section-sub">We provide everything you need to succeed</div>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-dumbbell"></i></div>
-                    <h3>Modern Equipment</h3>
-                    <p>Top-of-the-line machines and free weights</p>
+    <section class="section-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header">Why Choose Us</div>
+                    <div class="section-sub">We provide everything you need to succeed</div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div>
-                    <h3>Expert Trainers</h3>
-                    <p>Certified professionals to guide you</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                    <h3>24/7 Access</h3>
-                    <p>Workout anytime, day or night</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
-                    <h3>Personalized Plans</h3>
-                    <p>Custom workouts for your goals</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Programs Section -->
-<section id="programs" class="section-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-header">Our Programs</div>
-                <div class="section-sub">Find the perfect program for your fitness level</div>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="program-card">
-                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&auto=format" alt="Strength Training" class="program-img">
-                    <div class="p-3">
-                        <h3>Strength Training</h3>
-                        <p>Build muscle and increase power with compound lifts.</p>
-                        <span class="program-tag">💪 Beginner to Advanced</span>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-dumbbell"></i></div>
+                        <h3>Modern Equipment</h3>
+                        <p>Top-of-the-line machines and free weights</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="program-card">
-                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format" alt="HIIT Cardio" class="program-img">
-                    <div class="p-3">
-                        <h3>HIIT Cardio</h3>
-                        <p>Burn fat fast with high-intensity interval training.</p>
-                        <span class="program-tag">🔥 Fat Burning</span>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-chalkboard-user"></i></div>
+                        <h3>Expert Trainers</h3>
+                        <p>Certified professionals to guide you</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="program-card">
-                    <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&auto=format" alt="Yoga" class="program-img">
-                    <div class="p-3">
-                        <h3>Yoga & Mobility</h3>
-                        <p>Improve flexibility, reduce stress, recover faster.</p>
-                        <span class="program-tag">🧘 All Levels</span>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                        <h3>24/7 Access</h3>
+                        <p>Workout anytime, day or night</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="program-card">
-                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&auto=format" alt="Personal Training" class="program-img">
-                    <div class="p-3">
-                        <h3>Personal Training</h3>
-                        <p>One-on-one coaching with certified experts.</p>
-                        <span class="program-tag">🏆 Premium</span>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+                        <h3>Personalized Plans</h3>
+                        <p>Custom workouts for your goals</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Pricing Section -->
-<section id="pricing" class="section-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-header">Membership Plans</div>
-                <div class="section-sub">Choose the plan that fits your lifestyle</div>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="pricing-card">
-                    <h3>Basic</h3>
-                    <div class="price">$29<span>/month</span></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Gym Access</li>
-                        <li><i class="fas fa-check"></i> Locker Room</li>
-                        <li><i class="fas fa-times"></i> Personal Training</li>
-                        <li><i class="fas fa-times"></i> Guest Pass</li>
-                    </ul>
-                    <button class="btn-outline-gold choosePlan">Choose Plan</button>
+    <section id="programs" class="section-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header">Our Programs</div>
+                    <div class="section-sub">Find the perfect program for your fitness level</div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="pricing-card featured">
-                    <h3>Pro</h3>
-                    <div class="price">$59<span>/month</span></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> Gym Access</li>
-                        <li><i class="fas fa-check"></i> Locker Room</li>
-                        <li><i class="fas fa-check"></i> 2 Personal Training/mo</li>
-                        <li><i class="fas fa-check"></i> Guest Pass</li>
-                    </ul>
-                    <button class="btn btn-primary-gold choosePlan">Choose Plan</button>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="program-card">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&auto=format" alt="Strength Training" class="program-img">
+                        <div class="p-3">
+                            <h3>Strength Training</h3>
+                            <p>Build muscle and increase power with compound lifts.</p>
+                            <span class="program-tag">💪 Beginner to Advanced</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="pricing-card">
-                    <h3>Annual</h3>
-                    <div class="price">$499<span>/year</span></div>
-                    <ul>
-                        <li><i class="fas fa-check"></i> All Pro Benefits</li>
-                        <li><i class="fas fa-check"></i> Free Merchandise</li>
-                        <li><i class="fas fa-check"></i> Nutrition Plan</li>
-                        <li><i class="fas fa-check"></i> Save $200+</li>
-                    </ul>
-                    <button class="btn-outline-gold choosePlan">Choose Plan</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section id="contact" class="section-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="cta-box">
-                    <h3 class="mb-3">Ready to Start Your Journey?</h3>
-                    <p class="mb-4">Get 7 days free trial — no commitment, cancel anytime</p>
-                    <button class="btn btn-primary-gold" id="ctaBtn">Claim Free Trial →</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container text-center">
-        <div class="social-icons mb-3">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
-        <p>© 2026 IronForge Gym — Transform your body, transform your life</p>
-        <p class="small mt-2">Demo website. Contact me for a real gym website for your business.</p>
-    </div>
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    // Toast notification
-    function showToast(message) {
-        const toast = document.createElement('div');
-        toast.textContent = message;
-        toast.style.position = 'fixed';
-        toast.style.bottom = '30px';
-        toast.style.left = '50%';
-        toast.style.transform = 'translateX(-50%)';
-        toast.style.backgroundColor = '#1a1a2e';
-        toast.style.color = '#ffb347';
-        toast.style.padding = '12px 24px';
-        toast.style.borderRadius = '50px';
-        toast.style.borderLeft = '4px solid #ffb347';
-        toast.style.zIndex = '10000';
-        toast.style.fontSize = '0.85rem';
-        toast.style.backdropFilter = 'blur(10px)';
-        document.body.appendChild(toast);
-        
-        setTimeout(() => {
-            toast.style.opacity = '0';
-            setTimeout(() => toast.remove(), 300);
-        }, 2000);
-    }
-
-    // All buttons
-    const buttons = document.querySelectorAll('#joinBtn, #startBtn, #ctaBtn, .choosePlan');
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            showToast('💪 This is a demo. Contact me to build your real gym website!');
-        });
-    });
-
-    // Smooth scroll for nav links
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-</script>
-</body>
-</html>
+                <div class="col-md-6 col-lg-3">
+                    <div class="program-card">
+                        <img src="
